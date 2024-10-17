@@ -1,0 +1,157 @@
+/* VARIABLES */
+:root{
+    --base-background-1: #01080c;
+    --base-background-2: #1f001e;
+    --base-detail-1: #dadada;
+    --base-detail-2: #f8e5ff;
+    --base-font-1: #ffffff;
+    --base-font-2: #fffefc;
+}
+
+/* FONTS */
+@font-face {
+    font-family: "Nexa-EL";
+    src: url("../fonts/nexa/Nexa-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Nexa-H";
+    src: url("../fonts/nexa/Nexa-Heavy.ttf") format("truetype");
+}
+
+/* ANIMATIONS */
+@keyframes animateBg {
+  0% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* STYLES */
+#header-title>h1{
+    animation: animateBg 2.5s linear infinite;
+    background-image: linear-gradient(0deg,#f547d5,#e4b349,#c6ee4a,#42eca6,#64b3d9,#208ea2,#897ed3,#f547d5,#e4b349);
+    background-size: 100% 800%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 0.0001px;
+    -webkit-text-stroke-color: #ecff99;
+    transition: all ease-in-out 150ms;
+}
+
+body{
+    background-color: var(--base-background-1);
+    font-family: 'Nexa-EL';
+    color: var(--base-font-1);
+
+    header{
+        border: 2px solid rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0.5rem 0rem;
+        width: 100%;
+        min-height: 2rem;
+        
+        #header-container{
+            border: 2px solid rgb(255, 255, 255);
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            
+            #header-title,
+            #header-time{
+                padding: 0;
+            
+                h1{
+                    color: var(--base-font-1);
+                    font-family: 'Nexa-H';
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    margin: 1rem 0rem;
+                }
+            }
+        }
+    }
+
+    #page-content{
+        width: 90%;
+        margin: 2rem auto;
+        border: 2px solid white;
+    }
+}
+
+/* RESPONSIVENESS */
+@media (min-width:350px) {
+    #header-container{
+        border: 2px solid rgb(255, 255, 255);
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+        #header-title,
+        #header-time{
+            padding: 0;
+        
+            h1{
+                color: var(--base-font-1);
+                font-family: 'Nexa-H';
+                font-size: 1rem !important;
+                line-height: 1rem !important;
+            }
+        }
+    }
+
+    #page-content{
+        width: 95% !important;
+        margin: 2rem auto !important;
+        border: 2px solid white;
+    }
+}
+
+
+@media (min-width:768px) {
+    #header-container{
+        width: 95%;
+        
+        #header-title,
+        #header-time{
+        
+            h1{
+                font-size: 2rem !important;
+                line-height: 2rem !important;
+            }
+        }
+    }
+
+    #page-content{
+        width: 75% !important;
+        margin: 3rem auto !important;
+        border: 2px solid white;
+    }
+}
+
+@media (min-width:1080px) {
+    #header-container{
+        width: 95%;
+        
+        #header-title,
+        #header-time{
+        
+            h1{
+                font-size: 2.5rem !important;
+                line-height: 2.5rem !important;
+            }
+        }
+    }
+    
+    #page-content{
+        width: 60% !important;
+        margin: 4rem auto !important;
+        border: 2px solid white;
+    }
+}

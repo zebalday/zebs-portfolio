@@ -1,0 +1,7 @@
+venv
+website/.env
+website/__pycache__
+website/migrations
+portfolio/__pycache__
+portfolio/migrations
+db.sqlite3

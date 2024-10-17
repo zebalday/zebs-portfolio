@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block page_styles %}
+<link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock page_styles %}
+
+{% block page_content %}
+
+<div id="content-container">
+    <div id="profile-picture">
+        <img src="{% static 'img/pp-ia.jpg' %}" alt="Profile picture">
+    </div>
+    <div id="profile-description">
+        <h2>Sofware Engineer</h2>
+        <p>I'm a 25 Y.O Computer Engineer from L.S, Chile with strong programming skills in Python & Java who's passionate for data management.</p>
+        <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
+        <p>Checkout some of my projects!</p>
+    </div>
+</div>
+
+{% include "includes/social-media.html" %}
+
+
+{% endblock page_content %}
