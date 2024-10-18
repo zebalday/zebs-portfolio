@@ -5,14 +5,16 @@
 <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
 
 {% endblock page_styles %}
 
 {% block page_content %}
 
 <div id="content-container">
+    
+    <!-- PROFILE DESCRIPTION -->
     <div id="profile-picture">
         <img src="{% static 'img/pp-ia.jpg' %}" alt="Profile picture">
     </div>
@@ -22,7 +24,36 @@
         <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
         <p>Checkout some of my projects!</p>
     </div>
+
+    <!-- PROJECTS & STACK -->
+    <div id="background-section">
+        <div id="sections-toggle">
+            <div id="projects-toggle"><h4>Projects</h4></div>
+            <div id="stack-toggle"><h4>Stack</h4></div>
+        </div>
+        <div id="sections-content">
+            <div id="projects">
+                {% for project in projects %}
+                  {% include "includes/project-card.html" with project=project %}
+                {% endfor %}
+            </div>
+            <div id="stack">
+                <div id="stack-item"><img src="{% static 'img/python-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/java-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/js-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/django-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/drf-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/pl-sql-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/powerbi-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/powercenter-logo.png' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/talend-logo.jpeg' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
 
 {% include "includes/social-media.html" %}
 
