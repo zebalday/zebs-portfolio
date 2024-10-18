@@ -3,9 +3,13 @@
     --base-background-1: #01080c;
     --base-background-2: #1f001e;
     --base-detail-1: #dadada;
+    --base-detail-1-1: #dadadac5;
     --base-detail-2: #f8e5ff;
+    --base-detail-2-2: #f8e5ffc9;
     --base-font-1: #ffffff;
     --base-font-2: #fffefc;
+    --base-font-3: #01080c;
+    --base-font-4: #1f001e;
 }
 
 /* FONTS */
@@ -26,17 +30,33 @@
 }
 
 /* STYLES */
-#header-title>h1{
-    animation: animateBg 2.5s linear infinite;
-    background-image: linear-gradient(0deg,#f547d5,#e4b349,#c6ee4a,#42eca6,#64b3d9,#208ea2,#897ed3,#f547d5,#e4b349);
-    background-size: 100% 800%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-stroke-width: 0.0001px;
-    -webkit-text-stroke-color: #ecff99;
-    transition: all ease-in-out 150ms;
+body{
+    width: 100%;
+    margin: 0 auto;
 }
+
+#page-header{
+    -webkit-box-shadow: 0px -10px 30px 10px rgb(255 255 255);
+    box-shadow: 0px -10px 30px 10px rgb(255 255 255);
+    border-bottom: 1px solid var(--base-detail-2);
+    width: 100%;
+
+    #header-container{
+        #header-title>h1{
+            animation: animateBg 2.5s linear infinite;
+            background-image: linear-gradient(0deg,#f547d5,#e4b349,#c6ee4a,#42eca6,#64b3d9,#208ea2,#897ed3,#f547d5,#e4b349);
+            background-size: 100% 800%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-stroke-width: 0.0001px;
+            -webkit-text-stroke-color: #ecff99;
+            transition: all ease-in-out 150ms;
+        }
+
+    }
+}
+
 
 body{
     background-color: var(--base-background-1);
@@ -44,7 +64,7 @@ body{
     color: var(--base-font-1);
 
     header{
-        border: 2px solid rgb(255, 255, 255);
+        /* border: 2px solid rgb(255, 255, 255); */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -54,7 +74,7 @@ body{
         min-height: 2rem;
         
         #header-container{
-            border: 2px solid rgb(255, 255, 255);
+            /* border: 2px solid rgb(255, 255, 255); */
             width: 90%;
             display: flex;
             flex-direction: row;
@@ -79,14 +99,14 @@ body{
     #page-content{
         width: 90%;
         margin: 2rem auto;
-        border: 2px solid white;
+        /* border: 2px solid white; */
     }
 }
 
 /* RESPONSIVENESS */
 @media (min-width:350px) {
     #header-container{
-        border: 2px solid rgb(255, 255, 255);
+        /* border: 2px solid rgb(255, 255, 255); */
         width: 90%;
         display: flex;
         flex-direction: row;
@@ -109,7 +129,6 @@ body{
     #page-content{
         width: 95% !important;
         margin: 2rem auto !important;
-        border: 2px solid white;
     }
 }
 
@@ -131,7 +150,6 @@ body{
     #page-content{
         width: 70% !important;
         margin: 3rem auto !important;
-        border: 2px solid white;
     }
 }
 
@@ -152,6 +170,5 @@ body{
     #page-content{
         width: 55% !important;
         margin: 4rem auto !important;
-        border: 2px solid white;
     }
 }

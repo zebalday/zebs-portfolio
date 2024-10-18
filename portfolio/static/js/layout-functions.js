@@ -10,7 +10,7 @@ function updateTime() {
     document.querySelector('#header-time h1').innerHTML = formattedTime;
   }
 
-// Run the function every 5 seconds (5000 ms)
+// Run the function every 1 second
 setInterval(updateTime, 1000);
 
 // Optional: Update the time immediately on page load

@@ -6,17 +6,19 @@
     align-items: center;
 
     #profile-picture{
-        border: 1px solid white;
+        /* border: 1px solid white; */
         padding: 1rem;
 
         img{
             max-width: 10rem;
             border-radius: 50%;
+            animation: glow 10s ease-in-out infinite normal;
+            border: 2px solid var(--base-detail-2);
         }
     }
 
     #profile-description{
-        border: 1px solid white;
+        /* border: 1px solid white; */
         padding: 0rem 1rem;
         text-align: center;
 
@@ -28,7 +30,7 @@
     }
 
     #background-section{
-        border: 1px solid white;
+        /* border: 1px solid white; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -41,41 +43,48 @@
             flex-direction: row;
             justify-content: center;            
             align-items: center;
-            width: 100%;
             
-            #projects-toggle,
-            #stack-toggle{
-                border-top: 1px solid white;
-                border-left: 1px solid white;
-                border-right: 1px solid white;
-                border-radius: 5px;
-                padding: 0.5rem;
-                min-width: 20%;
-
-                h4{
-                    margin: 0 auto;
-                    text-align: center;
-                }
+            #show-stack,
+            #show-projects{
+                font-family: 'Nexa-H';
+                background-color: var(--base-background-1);
+                padding: 0.5rem 1rem;
+                color: var(--base-detail-1);
+                border: 1px solid var(--base-detail-2-2);
             }
         }
-        #sections-content{
-            border: 1px solid white;
+
+        #sections-content{            
+            /* border: 1px solid white; */
             width: 95%;
-            padding: 0.5rem;
+            background-color: var(--base-font-1);
+            margin: 0.5rem 0rem;
+            border-radius: 10px;
+            max-width: 90%;
             
-            #projects{}
-            #stack{
-                border: 1px solid white;
+            #projects{
                 display: grid;
-                grid-template-columns: 20% 20% 20%;
+                grid-template-columns: 95%;
                 grid-template-rows: max-content;
                 justify-content: space-around;
                 align-items: stretch;
                 column-gap: 1rem;
-                row-gap: 3rem;
+                row-gap: 1rem;
+                padding: 0.5rem 0rem;
+            }
+            #stack{
+                display: grid;
+                grid-template-columns: 40% 40%;
+                grid-template-rows: max-content;
+                justify-content: center;
+                align-items: stretch;
+                column-gap: 2rem;
+                row-gap: 2rem;
+                padding: 0.5rem 0rem;
+
                 
                 #stack-item{
-                    border: 1px solid white;
+                    /* border: 1px solid white; */
                     margin: 0 auto;
                     display: flex;
                     justify-content: center;
@@ -91,6 +100,32 @@
     }
 }
 
+/* EFFECTS */
+.active-button{
+    font-family: 'Nexa-EL';
+    background-color: var(--base-font-1) !important;
+    color: var(--base-background-1) !important;
+    border: 1px solid var(--base-background-2);
+    transform: scale(105%);
+    transition: all 0.2s;
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+    0% {
+        box-shadow: -5px 5px 20px -5px #ffffff;
+    }
+    50%{
+        box-shadow: 5px 5px 20px -5px #ffffff;
+    }
+    75%{
+        box-shadow: 5px -5px 20px -5px #ffffff;
+    }
+    100% {
+        box-shadow:-5px 5px 20px -5px #ffffff;
+    }
+}
+
 /* RESPONSIVENESS */
 @media (min-width:350px) {
     #content-container{
@@ -101,11 +136,14 @@
             }
         }
         #profile-description{
-            h2{
-                font-size: 1rem !important;
-            }
-            p{
-                font-size: medium !important;
+            h2{font-size: 1rem !important;}
+            p{font-size: medium !important;}
+        }
+        #background-section{
+            #sections-content{
+                #stack{
+                    grid-template-columns: 20% 20% 20% !important;
+                }
             }
         }
     }
@@ -122,11 +160,18 @@
             }
         }
         #profile-description{
-            h2{
-                font-size: 1.5rem !important;
-            }
-            p{
-                font-size: larger !important;
+            h2{font-size: 1.5rem !important;}
+            p{font-size: larger !important;}
+        }
+        #background-section{
+            #sections-content{
+                #projects{
+                    grid-template-columns: 45% 45% !important;
+                }
+                #stack{
+                    grid-template-columns: 25% 25% 25% !important;
+                    justify-content: center !important;
+                }
             }
         }
     }
@@ -142,11 +187,14 @@
             }
         }
         #profile-description{
-            h2{
-                font-size: 2.5rem !important;
-            }
-            p{
-                font-size: x-large !important;
+            h2{font-size: 2.5rem !important;}
+            p{font-size: x-large !important;}
+        }
+        #background-section{
+            #sections-content{
+                #stack{
+                    grid-template-columns: 20% 20% 20% !important;
+                }
             }
         }
     }

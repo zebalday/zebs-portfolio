@@ -72,11 +72,12 @@
         <footer>
 
         </footer>
+        
+        <!-- PAGE SCRIPTS -->
+        <script type="text/javascript" src={% static "js/layout-functions.js" %}></script>
+        {% block page_scripts %}
+            {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
+        {% endblock page_scripts %}
     </body>
     
-    <!-- PAGE SCRIPTS -->
-    {% block page_scripts %}
-        <script type="text/javascript" src={% static "js/layout-functions.js" %}></script>
-        {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
-    {% endblock page_scripts %}
 </html>

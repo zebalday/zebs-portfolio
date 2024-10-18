@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.utils import timezone
+from .models import Project
 
 # Create your views here.
 class index(TemplateView):
@@ -9,7 +9,8 @@ class index(TemplateView):
     context = {}
 
     def get(self, request):
-        self.context['timezone'] = timezone.now()
+        
+        self.context['projects'] = Project.objects.filter(public = True)
         
         return render(request, self.template_name, self.context)
     

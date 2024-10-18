@@ -7,6 +7,7 @@
 <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/include-project-card.css' %}" rel="stylesheet" type="text/css">
 
 {% endblock page_styles %}
 
@@ -22,21 +23,26 @@
         <h2>Sofware Engineer</h2>
         <p>I'm a 25 Y.O Computer Engineer from L.S, Chile with strong programming skills in Python & Java who's passionate for data management.</p>
         <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
-        <p>Checkout some of my projects!</p>
+        <p><b>Checkout some of my projects!</b></p>
     </div>
+
+    {% include "includes/social-media.html" %}
 
     <!-- PROJECTS & STACK -->
     <div id="background-section">
+        <!-- TOGGLE -->
         <div id="sections-toggle">
-            <div id="projects-toggle"><h4>Projects</h4></div>
-            <div id="stack-toggle"><h4>Stack</h4></div>
+            <button id="show-projects">Show Projects</button>
+            <button id="show-stack">Show Stack</button>
         </div>
         <div id="sections-content">
+            <!-- PROJECTS -->
             <div id="projects">
                 {% for project in projects %}
                   {% include "includes/project-card.html" with project=project %}
                 {% endfor %}
             </div>
+            <!-- STACK -->
             <div id="stack">
                 <div id="stack-item"><img src="{% static 'img/python-logo.png' %}" alt=""></div>
                 <div id="stack-item"><img src="{% static 'img/java-logo.png' %}" alt=""></div>
@@ -46,7 +52,7 @@
                 <div id="stack-item"><img src="{% static 'img/pl-sql-logo.png' %}" alt=""></div>
                 <div id="stack-item"><img src="{% static 'img/powerbi-logo.png' %}" alt=""></div>
                 <div id="stack-item"><img src="{% static 'img/powercenter-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/talend-logo.jpeg' %}" alt=""></div>
+                <div id="stack-item"><img src="{% static 'img/talend-logo.png' %}" alt=""></div>
             </div>
         </div>
     </div>
@@ -55,7 +61,12 @@
 
 
 
-{% include "includes/social-media.html" %}
 
 
 {% endblock page_content %}
+
+{% block page_scripts %}
+
+<script type="text/javascript" src={% static "js/section-content-toggle.js" %}></script>
+  
+{% endblock page_scripts %}

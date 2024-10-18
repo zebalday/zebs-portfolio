@@ -1,25 +1,21 @@
-<div id="card-container" onclick="location.href='{{project.github_url}}'">
+<div id="card-container" 
+    {% if project.deploy_url %} 
+        onclick="location.href='{{project.deploy_url}}'" 
+    {% else %} 
+        onclick="location.href='{{project.github_url}}'" 
+    {% endif %}
+>
     <div id="project-card">
         <div id="project-thumbnail">
-            <img src="{{project.thumbnail_url}}" alt="{{project.name}} Project Thumbnail">
+            <img src="{{project.thumbnail.url}}" alt="{{project.name}} Project Thumbnail">
         </div>
         <div id="project-content">
-            <div class="project-name">
+            <div id="project-name">
                 <h4>{{project.name}}</h4>
             </div>
-            <div class="project-description">
+            <div id="project-description">
                 <p>{{project.description}}</p>
             </div>
         </div>
     </div>
 </div>
-
-
-<!-- MODELO DE PROYECTO NECESITA 
- 
-> name
-> description
-> thumbnail_url
-> github_url
-
--->

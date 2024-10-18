@@ -1,7 +1,9 @@
+media
 venv
 website/.env
 website/__pycache__
 website/migrations
 portfolio/__pycache__
 portfolio/migrations
+portfolio/static/img
 db.sqlite3
