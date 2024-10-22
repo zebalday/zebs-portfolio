@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block page_title %}
+
+{% endblock page_title %}
+
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/login-form.css' %}">
+{% endblock page_styles %}
+
+
+
+{% block page_content %}
+
+{% if user %}
+    {{user.username}}
+{% endif %}
+
+<button onclick="showCustomAlert()">
+    Login
+</button>
+
+{% if user.is_authenticated %}
+    <button onclick="location.href='{% url "shitblogger:logout" %}'">
+        Logout
+    </button>
+{% endif %}
+
+<div class="form-overlay" id="form-overlay"></div>
+<div class="form-alert" id="form-alert">
+    <span class="form-close-button" onclick="hideCustomAlert()">&times;</span>
+    <div class="form-container" id="form-container">
+        <form action="{% url 'shitblogger:index' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" id="username" name="username">
+            <input type="password" id="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock page_content %}
+
+
+
+{% block page_scripts %}
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock page_scripts %}

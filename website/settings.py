@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fontawesomefree',
     'whitenoise',
-    'portfolio'
+    'portfolio',
+    'shitblogger'
 ]
 
 MIDDLEWARE = [

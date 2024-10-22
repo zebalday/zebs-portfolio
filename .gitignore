@@ -6,4 +6,7 @@ website/migrations
 portfolio/__pycache__
 portfolio/migrations
 portfolio/static/img
+shitblogger/__pycache__
+shitblogger/migrations
+shitblogger/static/img
 db.sqlite3
