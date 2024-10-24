@@ -1,5 +1,6 @@
 from .models import *
 from django.forms import ModelForm
+from django import forms
 
 # Blog form
 class BlogForm(ModelForm):
@@ -7,8 +8,8 @@ class BlogForm(ModelForm):
         model = BlogPost
         fields = ['title', 'content', 'categories', 'public',]
         widgets = {
-            'title' : models.TextField(attrs={'class':'form-imput', 'placeholder':'Post title'}),
-            'content' : models.TextField(attrs={'class':'form-imput', 'placeholder':'Post content'}),
+            'title' : forms.TextInput(attrs={'class':'form-imput', 'placeholder':'Post title'}),
+            'content' : forms.Textarea(attrs={'class':'form-imput', 'placeholder':'Post content'}),
         }
         labels = {
             'title':False,
@@ -22,7 +23,7 @@ class CategoryForm(ModelForm):
         model = Category
         fields = ['name']
         widgets = {
-            'name' : models.TextField(attrs={'class':'form-imput', 'placeholder':'Category name'})
+            'name' : forms.TextInput(attrs={'class':'form-imput', 'placeholder':'Category name'})
         }
         labels = {
             'name':False,

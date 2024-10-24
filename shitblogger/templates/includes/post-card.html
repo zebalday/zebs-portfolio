@@ -1,0 +1,21 @@
+<div class="post-container">
+    <div id="post-title"><h3>{{post.title}}</h3></div>
+    
+    <div id="post-categories">
+        <p class="categories">
+            {% for category in categories %}
+            #{{category}} {% if not forloop.last %} | {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    
+    <div id="post-content">
+        <p>{{post.content}}</p>
+    </div>
+    
+    <div id="post-dates">
+        <p><i>Published on {{post.created_at|date:"m-d-Y"}}. Last updated {{post.updated_at|date:"m-d-Y"}}</i></p>
+    </div>
+</div>
+
+{% comment %} AGREGAR ESTILOS {% endcomment %}

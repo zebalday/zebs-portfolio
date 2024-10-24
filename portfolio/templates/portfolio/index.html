@@ -26,36 +26,23 @@
         <p><b>Checkout some of my projects!</b></p>
     </div>
 
+    <!-- SPOTIFY ACTIVITY -->
+    <div id="spotify-container">
+        {% comment %} SPOTIDY ACTIVITY {% endcomment %}
+    </div>
+    
+    <!-- GITHUB ACTIVITY -->
+    <div id="commits-container">
+        {% comment %} COMMITS {% endcomment %}
+    </div>
+
+    <button onclick="fetchCommits();"> fetch </button>
+
+
+
     {% include "includes/social-media.html" %}
 
-    <!-- PROJECTS & STACK -->
-    <div id="background-section">
-        <!-- TOGGLE -->
-        <!-- <div id="sections-toggle">
-            <button id="show-projects">Show Projects</button>
-            <button id="show-stack">Show Stack</button>
-        </div> -->
-        <div id="sections-content">
-            <!-- PROJECTS -->
-            <div id="projects">
-                {% for project in projects %}
-                  {% include "includes/project-card.html" with project=project %}
-                {% endfor %}
-            </div>
-            <!-- STACK -->
-            <!-- <div id="stack">
-                <div id="stack-item"><img src="{% static 'img/python-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/java-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/js-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/django-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/drf-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/pl-sql-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/powerbi-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/powercenter-logo.png' %}" alt=""></div>
-                <div id="stack-item"><img src="{% static 'img/talend-logo.png' %}" alt=""></div>
-            </div> -->
-        </div>
-    </div>
+    
 
 </div>
 
@@ -68,5 +55,7 @@
 {% block page_scripts %}
 
 <script type="text/javascript" src={% static "js/section-content-toggle.js" %}></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src={% static "js/fetch-commits.js" %}></script>
   
 {% endblock page_scripts %}

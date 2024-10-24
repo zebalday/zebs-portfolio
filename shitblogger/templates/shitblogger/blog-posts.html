@@ -15,25 +15,12 @@
 
 {% block page_content %}
 
-{% if user %}
-    {{user.username}}
-{% endif %}
-
-<button onclick="showCustomAlert()">
-    Login
-</button>
-
-{% if user.is_authenticated %}
-    <button onclick="location.href='{% url "shitblogger:logout" %}'">
-        Logout
-    </button>
-{% endif %}
-
+<!-- HIDDEN LOGIN FORM -->
 <div class="form-overlay" id="form-overlay"></div>
 <div class="form-alert" id="form-alert">
     <span class="form-close-button" onclick="hideCustomAlert()">&times;</span>
     <div class="form-container" id="form-container">
-        <form action="{% url 'shitblogger:index' %}" method="POST">
+        <form action="{% url 'shitblogger:blog' %}" method="POST">
             {% csrf_token %}
             <input type="text" id="username" name="username">
             <input type="password" id="password" name="password">
@@ -41,6 +28,53 @@
         </form>
     </div>
 </div>
+
+<!-- MESSAGES -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="django-msg {% if message.tags == 'success' %}success-msg{% elif message.tags == 'error' %}error-msg{% endif %}">
+            {{message}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- ADMIN STUFF -->
+{% if not user.is_authenticated %}
+    <!-- LOGIN BUTTON -->
+    <button onclick="showCustomAlert()">
+        Login
+    </button>
+    
+{% elif user.is_authenticated %}
+    <!-- LOGOUT BUTTON -->
+    <button onclick="location.href='{% url "shitblogger:logout" %}'">
+        Logout
+    </button>
+
+    <!-- CAT FORM -->
+    <form action="{% url 'shitblogger:add-category' %}" method="POST">
+        {% csrf_token %}
+        {{category_form.as_p|safe}}
+        <button type="submit">Add category</button>
+    </form>
+    
+    <!-- POST FORM -->
+    <form action="{% url 'shitblogger:add-blog-post' %}" method="POST">
+        {% csrf_token %}
+        {{blog_form.as_p|safe}}
+        <button type="submit">Blog</button>
+    </form>
+    
+{% endif %}
+
+
+<!-- POSTS LIST -->
+
+{% for post in posts %}
+
+    {% include "includes/post-card.html" with post=post.post categories=post.categories %}
+
+{% endfor %}
 
 {% endblock page_content %}
 

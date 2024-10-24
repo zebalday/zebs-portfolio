@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fontawesomefree',
+    'rest_framework',
     'whitenoise',
     'portfolio',
-    'shitblogger'
+    'shitblogger',
+    'pytify',
 ]
 
 MIDDLEWARE = [
