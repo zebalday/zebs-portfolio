@@ -1,0 +1,30 @@
+
+<div id="track-card" class="{{track_card_class}}">
+
+    <div class="container">
+        <!-- THUMBNAIL -->
+        <div class="thumbnail-container">
+            <img src={{track.album.images.0.url}} alt="track-thumbnail">
+        </div>
+        <!-- TRACK INFO -->
+        <div class="track-info">
+            <!-- TRACK NAME -->
+            <div class="track-name">
+                <h4><a href={{track.external_urls.spotify}}>{{track.name}}</a></h4>
+            </div>
+            <!-- ALBUM -->
+            <div class="track-album">
+                <p><a href={{track.album.external_urls.spotify}}>{{track.album.name}}</a></p>
+            </div>
+            <!-- ARTISTS -->
+            <div class="artists-list">
+                <p>
+                    {% for artist in track.artists %}
+                        <a href={{artist.external_urls.spotify}}>{{ artist.name }}</a> {% if not forloop.last %} - {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

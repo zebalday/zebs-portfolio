@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'whitenoise',
     'portfolio',
     'shitblogger',
-    'pytify',
 ]
 
 MIDDLEWARE = [

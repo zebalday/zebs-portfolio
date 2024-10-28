@@ -11,13 +11,19 @@ function fetchCommits() {
       success: function(data) {
         console.log(data['commits'])
         let commits = data['commits'];
-        displayData(commits)
+        displayCommits(commits)
       }
   });
 }
 
 // Display data on html
-function displayData(commits) {
+function displayCommits(commits) {
+
+  // Ensure the input is an array before processing
+  if (!Array.isArray(commits)) {
+    console.error('Expected an array of commits');
+    return;
+  }
 
   // Clear the container before appending new content
   commitsContainer.innerHTML = '';
@@ -50,4 +56,5 @@ function displayData(commits) {
   });
 }
 
-
+// Execute on window load
+window.onload = fetchCommits;

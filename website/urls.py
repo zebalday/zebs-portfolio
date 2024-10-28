@@ -25,7 +25,6 @@ urlpatterns = [
     path('', index.as_view(), name='index'),
     path('portfolio/', include('portfolio.urls')),
     path('shitblogger/', include('shitblogger.urls')),
-    path('pytify/', include('pytify.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

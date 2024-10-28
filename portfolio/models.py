@@ -42,3 +42,16 @@ class Project(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name} ({self.github_url})"
+
+
+class SpotifyToken(models.Model):
+    token_type = models.CharField(max_length=50)
+    access_token = models.CharField(max_length=300)
+    refresh_token = models.CharField(max_length=300)
+    expires_in = models.DateTimeField()
+    scope = models.CharField(max_length=300)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return (f"{self.updated_at}\n{self.access_token}\n{self.refresh_token}")

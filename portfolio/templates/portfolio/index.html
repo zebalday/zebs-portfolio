@@ -7,7 +7,8 @@
 <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css/include-project-card.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/include-spotify-classes.css' %}" rel="stylesheet" type="text/css">
+{% comment %} <link href="{% static 'css/include-project-card.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
 
 {% endblock page_styles %}
 
@@ -15,6 +16,7 @@
 
 <div id="content-container">
     
+
     <!-- PROFILE DESCRIPTION -->
     <div id="profile-picture">
         <img src="{% static 'img/pp-ia.jpg' %}" alt="Profile picture">
@@ -26,23 +28,40 @@
         <p><b>Checkout some of my projects!</b></p>
     </div>
 
+    
     <!-- SPOTIFY ACTIVITY -->
     <div id="spotify-container">
-        {% comment %} SPOTIDY ACTIVITY {% endcomment %}
+
+        <!-- CURRENTLY PLAYING SONG -->
+        <div id="current-playing-container">
+            {% if current_song.currently_playing == True %}
+                <h3>Currently playing</h3>
+                {% include "includes/current-song.html" with track=current_song.track.item track_card_class="current-playing" %}
+            {% endif %}
+        </div>
+        
+        <!-- RECENTLY PLAYED TRACKS -->
+        <div id="recently-played-container">
+            <h3>Recently played...</h3>
+            {% if recently_played.recently_exists == True %}
+                {% for track in recently_played.tracks %}
+                    {% include "includes/current-song.html" with track=track.track track_card_class="recently-played" %}                
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        {% comment %} <button onclick="location.href='{{login_url}}'"> login </button> {% endcomment %}
     </div>
+    
     
     <!-- GITHUB ACTIVITY -->
     <div id="commits-container">
         {% comment %} COMMITS {% endcomment %}
     </div>
 
-    <button onclick="fetchCommits();"> fetch </button>
 
-
-
+    <!-- SOCIAL MEDIA -->
     {% include "includes/social-media.html" %}
-
-    
 
 </div>
 
@@ -52,10 +71,12 @@
 
 {% endblock page_content %}
 
+
 {% block page_scripts %}
 
-<script type="text/javascript" src={% static "js/section-content-toggle.js" %}></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src={% static "js/fetch-commits.js" %}></script>
+<script type="text/javascript" src={% static "js/fetch-current-song.js" %}></script>
+<script type="text/javascript" src={% static "js/fetch-recently-played.js" %}></script>
   
 {% endblock page_scripts %}

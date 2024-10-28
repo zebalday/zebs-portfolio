@@ -1,0 +1,140 @@
+/* VARS */
+:root{
+    --spotify-light-green: #1ed760;
+    --spotify-dark-green: #1db954;
+    --spotify-light-purple: #fc39d8;
+    --spotify-dark-purple: #b02897;
+    --spotify-light-blue: #509bf5;
+    --spotify-dark-blue: #1e3264;
+    --spotify-light-red: #e91429;
+    --spotify-dark-red: #8c1932;
+    --spotify-light-callypso: #00fafa;
+    --spotify-dark-callypso: #009cad;
+    --spotify-light-yellow: #f9e12c;
+    --spotify-dark-yellow: #d19f0a;
+    --spotify-light-grey: #909090;
+    --spotify-dark-grey: #444444;
+    --spotify-dark: #191414;
+    --spotify-light: #ffffff;
+}
+
+
+
+/* SPOTIFY CONTAINER */
+
+#spotify-container{
+
+    /* Common styles */
+    #current-playing-container>#track-card,
+    #recently-played-container>#track-card{
+        padding: 0.5rem;
+        border-radius: 15px;
+
+        .container{
+            display: flex;
+            column-gap: 1rem;
+            align-items: center;
+            
+            .thumbnail-container{
+                img{
+                    max-width: 5rem;
+                    border-radius: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                }
+            }
+    
+            .track-info{
+                display: flex;
+                flex-direction: column;
+
+                .track-name,
+                .track-album,
+                .artists-list{
+                    a{
+                        text-decoration: none;
+                    }
+                    h4, p{
+                        margin: 0 auto;
+                        text-align: left;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /* Currently playing styles */
+    #current-playing-container{
+        margin: 0.5rem auto;
+        padding: 0.2rem;
+
+        .current-playing{
+            background-color: var(--spotify-dark-green);
+            border: 1px solid var(--spotify-light);
+
+            .container{
+
+                .track-info{
+
+                    .track-name,
+                    .track-album,
+                    .artists-list{
+                        h4{font-weight:bolder;}
+                        a{color: var(--spotify-dark);}
+                        a:hover{
+                            text-decoration: underline !important;
+                            color: var(--spotify-dark-blue) !important;
+
+                        }
+                    }       
+                }
+            }
+        }
+
+        .current-playing:hover{
+            transform: scale(105%);
+            border: 2px solid var(--spotify-dark-yellow);
+            transition: all 150ms;
+            box-shadow: var(--spotify-dark-yellow) 0px 0px 50px, var(--spotify-dark-yellow) 0px 6px 6px;
+        }
+    }
+
+
+    /* Recently played styles */
+    #recently-played-container{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        width: 90%;
+
+        .recently-played{
+            background-color: var(--spotify-dark-grey);
+            border: 1px solid var(--spotify-light-grey);
+
+            .container{
+                .track-info{
+
+                    .track-name,
+                    .track-album,
+                    .artists-list{
+                        a{color: var(--spotify-light);}
+                        a:hover{
+                            text-decoration: underline !important;
+                            color: var(--spotify-dark-grey) !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .recently-played:hover{
+            background-color: var(--spotify-light-grey);
+            transform: scale(102%);
+            border: 2px solid var(--spotify-dark-green);
+            transition: all 150ms;
+        }
+    }
+}
+

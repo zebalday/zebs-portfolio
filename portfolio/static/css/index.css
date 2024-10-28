@@ -29,75 +29,13 @@
         }
     }
 
-    #background-section{
-        /* border: 1px solid white; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: 0px;
-        width: 100%;
-        
-        #sections-toggle{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;            
-            align-items: center;
-            
-            #show-stack,
-            #show-projects{
-                font-family: 'Nexa-H';
-                background-color: var(--base-background-1);
-                padding: 0.5rem 1rem;
-                color: var(--base-detail-1);
-                border: 1px solid var(--base-detail-2-2);
-            }
-        }
-
-        #sections-content{            
-            /* border: 1px solid white; */
-            width: 95%;
-            background-color: var(--base-font-1);
-            margin: 0.5rem 0rem;
-            border-radius: 10px;
-            max-width: 90%;
-            
-            #projects{
-                display: grid;
-                grid-template-columns: 95%;
-                grid-template-rows: max-content;
-                justify-content: space-around;
-                align-items: stretch;
-                column-gap: 1rem;
-                row-gap: 1rem;
-                padding: 0.5rem 0rem;
-            }
-            #stack{
-                display: grid;
-                grid-template-columns: 40% 40%;
-                grid-template-rows: max-content;
-                justify-content: center;
-                align-items: stretch;
-                column-gap: 2rem;
-                row-gap: 2rem;
-                padding: 0.5rem 0rem;
-
-                
-                #stack-item{
-                    /* border: 1px solid white; */
-                    margin: 0 auto;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 5rem;
-
-                    img{
-                        max-width: 5rem;
-                    }
-                }
-            }
-        }
+    #spotify-container,
+    #commits-container{
+        width: 95%;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
     }
+
 }
 
 /* EFFECTS */
