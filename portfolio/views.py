@@ -3,12 +3,19 @@ from django.http import JsonResponse
 from django.views.generic import TemplateView
 from .models import Project, SpotifyToken
 from .serializers import SpotifyTokensSerializer
-from .utils import save_tokens, refresh_token, get_current_song, get_recently_played
 from pyhub.GitHubAPI import GitHubApi
 from requests import get, post, Request
 import dotenv
 import os
 import base64
+from .utils import (
+    save_tokens, 
+    refresh_token, 
+    get_current_song, 
+    get_recently_played, 
+    check_valid_token,
+    get_valid_token
+)
 
 
 
@@ -32,8 +39,15 @@ class index(TemplateView):
 
     def get(self, request):
         
-        # Get access token
-        access_token = request.session['access_token'] if 'access_token' in request.session else refresh_token()
+        # Sesion & access token
+        if not request.session.exists(request.session.session_key):
+            request.session.create()
+        else:
+            request.session.flush()
+            request.session.create()
+        
+        request.session['access_token'] = get_valid_token()
+        access_token = request.session['access_token']
         
         # Context
         self.context['projects'] = Project.objects.filter(public = True)
@@ -114,7 +128,10 @@ def spotify_callback(request):
 # Fetch current song
 def current_song(request):
     
-    access_token = request.session['access_token'] if 'access_token' in request.session else refresh_token()
+    # Get token
+    access_token = request.session['access_token']
+
+    # Return track
     track = get_current_song(access_token)
     return JsonResponse(track)
 
@@ -123,8 +140,22 @@ def current_song(request):
 # Fetch recently played
 def recently_played(request):
 
-    access_token = request.session['access_token'] if 'access_token' in request.session else refresh_token()
+    # Get token
+    access_token = request.session['access_token']
+
+    # Return track
     tracks = get_recently_played(access_token)
     return JsonResponse(tracks)
 
 
+
+# Fetch is valid token
+def is_auth(request):
+
+    # Get token
+    access_token = request.session['access_token']
+
+    #print(f"IS_AUTH access token: {access_token}")
+
+    is_valid = check_valid_token(access_token)
+    return JsonResponse(is_valid)

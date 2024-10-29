@@ -28,7 +28,7 @@
     #current-playing-container>#track-card,
     #recently-played-container>#track-card{
         padding: 0.5rem;
-        border-radius: 15px;
+        border-radius: 10px;
 
         .container{
             display: flex;
@@ -38,7 +38,7 @@
             .thumbnail-container{
                 img{
                     max-width: 5rem;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
                 }
             }
@@ -94,9 +94,9 @@
 
         .current-playing:hover{
             transform: scale(105%);
-            border: 2px solid var(--spotify-dark-yellow);
+            border: 2px solid var(--spotify-light);
             transition: all 150ms;
-            box-shadow: var(--spotify-dark-yellow) 0px 0px 50px, var(--spotify-dark-yellow) 0px 6px 6px;
+            box-shadow: var(--spotify-light-green) 0px 0px 50px, var(--spotify-light-green) 0px 6px 6px;
         }
     }
 
@@ -136,5 +136,15 @@
             transition: all 150ms;
         }
     }
+}
+
+/* EFFECTS */
+@keyframes spinThat {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 

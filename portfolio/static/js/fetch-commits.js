@@ -1,10 +1,15 @@
 // Commits container
 const commitsContainer = document.getElementById('commits-container');
+const loader = document.getElementById('commits-loader');
 
 
 // Fetch Commits from GitHubAPi endpoint
 function fetchCommits() {
 
+  // Show loader
+  loader.style.display = 'block';
+
+  // Petition
   $.ajax({
       url: '/portfolio/get-last-commits',
       dataType: 'json',
@@ -12,12 +17,17 @@ function fetchCommits() {
         console.log(data['commits'])
         let commits = data['commits'];
         displayCommits(commits)
+      },
+      complete: function () {  
+        loader.style.display = 'none';
       }
   });
 }
 
 // Display data on html
 function displayCommits(commits) {
+
+  let content = '<h3>Last commits...</h3>';
 
   // Ensure the input is an array before processing
   if (!Array.isArray(commits)) {
@@ -31,29 +41,24 @@ function displayCommits(commits) {
   // Iterate over each commit and create a div for the repo_name
   commits.forEach(commit => {
 
-    // Commit card & onclick event
-    const commitDiv = document.createElement('div');
-    commitDiv.classList.add('commit-card');
-    commitDiv.onclick = () => {window.open(commit.repo_url, '_blank');};
+    // Commit data
+    let repoName = commit.repo_name;
+    let commitDate = commit.commit_date;
+    let commitMessage = commit.commit_message;
+    let repoURL = commit.repo_url;
 
-    // Repo name, commit date, commite message
-    const commitName = document.createElement('h3');
-    commitName.textContent = commit.repo_name;
+    // Inner content
+    innerContent = `<div class="commit-card">
+                      <h4>`+repoName+`<a href="`+repoURL+`" traget="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h4>
+                      <p>`+commitDate+`</p>
+                      <p>`+commitMessage+`</p>
+                    </div>`;
+
+    content += innerContent;
     
-    const commitDate = document.createElement('p');
-    commitDate.textContent = commit.commit_date;
-    
-    const commitMessage = document.createElement('p');
-    commitMessage.textContent = commit.commit_message;
-
-    // Add data to commit card
-    commitDiv.appendChild(commitName);
-    commitDiv.appendChild(commitDate);
-    commitDiv.appendChild(commitMessage);
-
-    // Add commit card to commits container
-    commitsContainer.appendChild(commitDiv); // Append the div to the container
   });
+
+  commitsContainer.innerHTML = content;
 }
 
 // Execute on window load

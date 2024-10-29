@@ -1,0 +1,123 @@
+/* VARS */
+:root{
+    --commit-light-blue: #509bf5;
+    --commit-dark-blue: #1e3264;
+    --commit-dark-blue-2: #1e3264c7;
+    --commit-light-red: #e91429;
+    --commit-dark-red: #8c1932;
+    --commit-dark-callypso: #009cad;
+    --commit-light-yellow: #f9e12c;
+    --commit-dark-yellow: #d19f0a;
+    --commit-light-grey: #909090;
+    --commit-dark-grey: #444444;
+    --commit-dark: #191414;
+    --commit-light: #ffffff;
+}
+
+#commits-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    h3{
+        width: 90%;
+        margin: 1rem auto;
+    }
+    .commit-card{
+        margin: 0 auto;
+        width: 90%;
+        padding: 0.2rem;
+        background-color: var(--commit-dark-blue-2);
+        border: 1px solid var(--commit-dark-yellow);
+        border-radius: 10px;
+        color: var(--commit-light);
+        -webkit-box-shadow: inset 0px 0px 14px -5px #000000; 
+        box-shadow: inset 0px 0px 14px -5px #000000;
+        h4{
+            margin: 0.5rem 0;
+            font-weight: bolder;
+            margin-inline-start: 0.5rem;
+
+            a{
+                color: var(--commit-light);
+                text-decoration: none;
+
+                .fa-arrow-up-right-from-square{
+                    font-size: inherit !important;
+                    margin: 0rem 1rem !important;
+                    padding: 0.2rem !important;
+                }
+            }
+            a:hover{
+                color: var(--commit-dark-yellow);
+                text-decoration: underline;
+            }
+        }
+        p{
+            margin: 0.2rem auto;
+            margin-inline-start: 1rem;
+        }
+    }
+    .commit-card:hover{
+        transform: scale(105%);
+        border: 1px solid var(--commit-light-yellow);
+        background-color: var(--commit-dark-blue);
+        transition: all 150ms;
+        box-shadow: var(--commit-dark-yellow) 0px 0px 20px, var(--commit-dark-yellow) 0px 0px 5px
+    }
+}
+
+/* EFFECTS */
+
+.loader {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin: 100px auto;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 0;
+    text-transform: uppercase;
+}
+
+.loader:before,
+.loader:after {
+    opacity: 0;
+    box-sizing: border-box;
+    content: "\0020";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    border: 5px solid var(--commit-dark-yellow);
+    box-shadow: 0 0 50px var(--commit-dark-yellow), inset 0 0 50px var(--commit-dark-yellow);
+}
+
+.loader:after {
+    z-index: 1;
+    animation: gogoloader 2s infinite 1s;
+}
+
+.loader:before {
+    z-index: 2;
+    animation: gogoloader 2s infinite;
+}
+
+  
+@keyframes gogoloader {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0;
+    }
+}
+  

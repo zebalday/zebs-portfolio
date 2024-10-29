@@ -8,6 +8,7 @@
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/include-social-media.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/include-spotify-classes.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/include-commit-card.css' %}" rel="stylesheet" type="text/css">
 {% comment %} <link href="{% static 'css/include-project-card.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
 
 {% endblock page_styles %}
@@ -16,7 +17,6 @@
 
 <div id="content-container">
     
-
     <!-- PROFILE DESCRIPTION -->
     <div id="profile-picture">
         <img src="{% static 'img/pp-ia.jpg' %}" alt="Profile picture">
@@ -38,24 +38,24 @@
                 <h3>Currently playing</h3>
                 {% include "includes/current-song.html" with track=current_song.track.item track_card_class="current-playing" %}
             {% endif %}
+            {% comment %} <button onclick="location.href='{{login_url}}'">LOGIN</button> {% endcomment %}
         </div>
         
         <!-- RECENTLY PLAYED TRACKS -->
         <div id="recently-played-container">
-            <h3>Recently played...</h3>
             {% if recently_played.recently_exists == True %}
+            <h3>Recently played...</h3>
                 {% for track in recently_played.tracks %}
                     {% include "includes/current-song.html" with track=track.track track_card_class="recently-played" %}                
                 {% endfor %}
             {% endif %}
         </div>
-        
-        {% comment %} <button onclick="location.href='{{login_url}}'"> login </button> {% endcomment %}
     </div>
     
     
     <!-- GITHUB ACTIVITY -->
     <div id="commits-container">
+        <div id="commits-loader" class="loader">Loading</div>
         {% comment %} COMMITS {% endcomment %}
     </div>
 

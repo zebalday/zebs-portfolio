@@ -50,14 +50,14 @@ def save_tokens(response):
 
 
 # Refresh existing tokens
-def refresh_token():
+def refresh_token(access_token = None):
 
     # Data to refresh
-    spotify_token = SpotifyToken.objects.first()
+    spotify_token = SpotifyToken.objects.get(access_token=access_token) if access_token else SpotifyToken.objects.last()
     refresh_token = spotify_token.refresh_token
 
-    print(spotify_token.expires_in)
-    print(refresh_token)
+    print(f"REFRESHING EXPIRES IN: {spotify_token.expires_in}")
+    print(f"REFRESHING ID: {spotify_token.id}")
 
     # URL
     tokens_url = 'https://accounts.spotify.com/api/token'
@@ -89,18 +89,56 @@ def refresh_token():
     spotify_token.save()
     
     # Debug
-    print(f"Refreshing token: {response['access_token'][:9]}; Refresh {refresh_token[:9]}; {expires_in}")
+    print(f"NEW ACCESS TOKEN: {response['access_token'][:15]}")
+    print(f"EXPIRES IN: {expires_in}")
 
     # Return new access token
     return response['access_token']
 
 
 
+# Check if token is valid
+def check_valid_token(access_token):
+
+    #print(f"CHECKING: {access_token[:15]}")
+    
+    token = SpotifyToken.objects.get(access_token=access_token)
+    valid = True if token.expires_in > timezone.now() else False
+
+    return valid
+
+    """ return {
+        'is_auth' : valid,
+        'token_id':token.id,
+        'token':token.access_token,
+        'expires_in':token.expires_in,
+        'timezone_now':timezone.now()
+    } """
+
+
+
+# Get valid token
+def get_valid_token(access_token = None):
+    
+    # Get access token
+    access_token = access_token if access_token else SpotifyToken.objects.last().access_token
+    
+    # Return valid token
+    if not check_valid_token(access_token):
+        return refresh_token(access_token)
+    
+    return access_token
+
+
+
 # Get current playing song
 def get_current_song(access_token):
 
-    # CODE 204 --> No message body means no song playing.
+    # Valid access token
+    access_token = get_valid_token(access_token)
 
+    # Petition
+    # CODE 204 --> No message body means no song playing.
     endpoint = 'https://api.spotify.com/v1/me/player/currently-playing'
 
     response = get(
@@ -111,9 +149,12 @@ def get_current_song(access_token):
         }
     )
 
+    #print(response.status_code)
+    #print(response.content)
+
     if response.status_code == 200:
         response = response.json()
-        print(f"Current playing: {response}")
+        #print(f"Current playing: {response}")
         return {'currently_playing' : True, 'track' : response}
     
     return {'currently_playing' : False, 'track' : None}
@@ -123,6 +164,10 @@ def get_current_song(access_token):
 # Get recently played tracks
 def get_recently_played(access_token):
     
+    # Valid access token
+    access_token = get_valid_token(access_token)
+
+    # Petition
     endpoint = 'https://api.spotify.com/v1/me/player/recently-played'
     
     response = get(
@@ -136,10 +181,12 @@ def get_recently_played(access_token):
         }
     )
 
+    #print(response.status_code)
+
     if response.status_code == 200:
         response = response.json()
-        print(f"Recently played: {response}")
-        print(len(response['items']))
+        #print(f"Recently played: {response}")
+        #print(len(response['items']))
         return {'recently_exists' : True, 'tracks' : response['items']}
     
     return {'recently_exists' : False, 'tracks' : None}
