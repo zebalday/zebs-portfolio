@@ -54,6 +54,7 @@ body{
                 text-align: center;
                 font-family: "klavika-B";
                 color: var(--blog-base-1);
+                font-size: 3rem;
             }
         }
     }
@@ -61,7 +62,30 @@ body{
 
 #page-content{
     padding: 0.5rem;
-    margin: 4rem auto;
+    margin: 2rem auto;
     width: 90%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "klavika-B";
+    color: var(--blog-base-1);
+    background-color: var(--blog-base-4);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    a{
+        text-decoration: none;
+        color: var(--blog-base-1);
+
+    }
+    a:hover{
+        text-decoration: underline;
+        color: var(--blog-detail-1);
+    }
 }

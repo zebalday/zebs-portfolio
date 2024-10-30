@@ -24,20 +24,12 @@ class BlogIndex(TemplateView):
         category_form = CategoryForm()
 
         # Paginator
-        paginator_instance = Paginator(blog_posts, 20)
+        paginator_instance = Paginator(blog_posts, 5)
         page_number = request.GET.get('page')
-        posts_per_page = paginator_instance.get_page(page_number)
-
-        # Serialize & Add categories
-        posts_json = []
-        for post in posts_per_page:
-            posts_json.append({
-                    'post' : post,
-                    'categories' : post.categories.all()
-                })
+        posts = paginator_instance.get_page(page_number)
 
         # Context
-        self.context['posts'] = posts_json
+        self.context['posts'] = posts
         self.context['blog_form'] = blog_form
         self.context['category_form'] = category_form
 
@@ -60,10 +52,9 @@ class BlogIndex(TemplateView):
             messages.error(request, 'Invalid credentials.')
             return render(request, self.template_name, self.context)
         
-        # POST - CREATE BLOG POST
-        elif 'title' in request.POST:
-            print(request.POST['title'])
-            return render(request, self.template_name, self.context)
+
+        messages.error(request, 'No post data.')
+        return render(request, self.template_name, self.context)
 
         
 

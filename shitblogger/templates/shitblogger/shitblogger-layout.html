@@ -34,6 +34,9 @@
         <meta property="og:site_name" content="" />
         
         <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href={% static 'fontawesomefree/css/fontawesome.css' %} >
+        <link rel="stylesheet" type="text/css" href={% static 'fontawesomefree/css/all.min.css' %} >
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css" href={% static "css/shitblogger-layout.css" %}>
         {% block page_styles %}
         {% comment %} CHILD TEMPLATE STYLES {% endcomment %}
@@ -71,7 +74,14 @@
 
         <!-- PAGE FOOTER -->
         <footer>
-
+            {% if not user.is_authenticated %}
+                <!-- LOGIN BUTTON -->
+                <h3 onclick="showCustomAlert()">[ theshitblogger ] © All rights reserved 2024</h3>
+            {% else %}
+                <!-- LOGOUT BUTTON -->
+                <h3 onclick="location.href='{% url "shitblogger:logout" %}'">Logout</h3>
+            {% endif %}
+            <p>Site by <a href="https://github.com/zebalday">@zebalday</a></p>
         </footer>
         
         <!-- PAGE SCRIPTS -->

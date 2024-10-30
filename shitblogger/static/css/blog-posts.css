@@ -1,9 +1,11 @@
+
 #page-content{
 
     .content-container{
         /* border: 1px solid black; */
         display: flex;
-        column-gap: 1rem;
+        flex-direction: column;
+        row-gap: 1rem;
 
         /* NAVIGATION BAR */
         .side-bar{
@@ -12,7 +14,7 @@
             height: fit-content;
             display: flex;
             flex-direction: column;
-            row-gap: 0.5rem;
+            /* row-gap: 0.5rem; */
 
             ul{
                 width: 100%;
@@ -21,6 +23,8 @@
                 list-style:none;
                 padding-inline-start: 0rem;
                 font-family: "klavika-L";
+                display: flex;
+                justify-content: space-around;
 
                 li{
                     padding: 0.5rem;
@@ -37,16 +41,19 @@
 
         /* CONTENT SECTION */
         .posts-section{
-            border: 2px solid var(--blog-base-4);
+            /* border: 2px solid var(--blog-base-4); */
             display: flex;
             flex-direction: column;
             row-gap: 1rem;
             align-items: center;
             justify-content: center;
-            width: 80%;
+            /* width: 80%; */
             
             .forms-section{
                 width: 100%;
+                row-gap: 1rem;
+                display: flex;
+                flex-direction: column;
 
                 /* CATEGORY FORM */
                 .cat-form{
@@ -88,8 +95,13 @@
                             width: 95%;
                             margin: 0.5rem auto;
                             display: flex;
-                            justify-content: space-between;
-                            align-items: center;
+                            flex-direction: column;
+                            row-gap: 1rem;
+
+                            .fb-button{
+                                margin: 0 auto;
+                            }
+                
 
                             .categories{
                                 display: flex;
@@ -122,6 +134,42 @@
     }
 }
 
+
+/* RESPONSIVENESS */
+
+@media (min-width:768px) {
+    .content-container{
+        display: flex;
+        flex-direction: row !important;
+        column-gap: 1rem;
+
+        .side-bar{
+            ul{
+                display: list-item !important;
+            }
+        }
+
+        .posts-section{
+            width: 100%;
+
+            .forms-section{
+                .post-form{
+                    form{
+                        .row-2{
+                            width: 95%;
+                            margin: 0.5rem auto;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* CLASSES */
 .section-title{
     width: 100%;
     margin: 0 auto;
@@ -134,7 +182,7 @@
 
 .section{
     width: 100%;
-    border: 1px solid var(--blog-base-4);
+    border: 2px solid var(--blog-base-4);
     font-family: "klavika-B";
 }
 
@@ -144,7 +192,8 @@
     background-color: var(--blog-base-6);
     font-family: "klavika-L";
     color: var(--blog-base-1);
-    border: 1px solid var(--blog-base-6)
+    border: 1px solid var(--blog-base-6);
+    max-height: 2rem;
 }
 .fb-button:hover{
     background-color: var(--blog-base-5);
@@ -158,4 +207,21 @@
 .form-input{
     font-family: "klavika-L";
     border-radius: 0px;
+}
+
+.paginator{
+    display: flex;
+    column-gap: 1rem;
+    color: var(--blog-base-3);
+    font-family: "klavika-L";
+    
+    span{
+        a{
+            text-decoration: none;
+            color: var(--blog-base-3);
+        }
+        a:hover{
+            color: var(--blog-base-4);
+        }
+    }
 }
