@@ -1,0 +1,67 @@
+/* VARIABLES */
+:root{
+    --blog-base-1: #eeeeed;
+    --blog-base-2: #d3e0ee;
+    --blog-base-3: #898F9C;
+    --blog-base-4: #5483cd;
+    --blog-base-5: #0966ff;
+    --blog-base-6: #3b5791;
+    --blog-base-7: #111754;
+    --blog-base-8: #00080c;
+
+    --blog-detail-1: #ee85bd;
+    --blog-detail-2: #9683cd;
+    --blog-detail-3: #e65748;
+    --blog-detail-4: #e69e20;
+    --blog-detail-5: #dde0e6;
+    --blog-detail-6: #cad0dc;
+}
+
+/* FONTS */
+@font-face {
+    font-family: "klavika-B";
+    src: url("../fonts/klavika-B.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "klavika-M";
+    src: url("../fonts/klavika-M.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "klavika-L";
+    src: url("../fonts/klavika-L.otf") format("opentype");
+}
+
+
+/* STYLES */
+body{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#page-header{
+    /* background-color: var(--blog-base-6); */
+    background: rgb(238,238,237);
+    background: linear-gradient(90deg, rgba(238,238,237,1) 0%, rgba(141,156,187,1) 20%, rgba(59,87,145,1) 35%);
+
+    #header-container{
+        #header-title{
+            h1{
+                border: 1px solid var(--blog-base-1);
+                margin: 0 auto;
+                padding: 1rem 0rem;
+                text-align: center;
+                font-family: "klavika-B";
+                color: var(--blog-base-1);
+            }
+        }
+    }
+}
+
+#page-content{
+    padding: 0.5rem;
+    margin: 4rem auto;
+    width: 90%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}

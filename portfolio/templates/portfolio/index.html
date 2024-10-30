@@ -1,5 +1,7 @@
-{% extends "layout.html" %}
+{% extends "portfolio/layout.html" %}
 {% load static %}
+
+{% block page_title %}Home{% endblock page_title %}
 
 {% block page_styles %}
 <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
@@ -12,6 +14,7 @@
 {% comment %} <link href="{% static 'css/include-project-card.css' %}" rel="stylesheet" type="text/css"> {% endcomment %}
 
 {% endblock page_styles %}
+
 
 {% block page_content %}
 
@@ -26,6 +29,7 @@
         <p>I'm a 25 Y.O Computer Engineer from L.S, Chile with strong programming skills in Python & Java who's passionate for data management.</p>
         <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
         <p><b>Checkout some of my projects!</b></p>
+        <button onclick="location.href={% url 'shitblogger:index' %}">BLOG</button>
     </div>
 
     

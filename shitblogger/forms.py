@@ -8,13 +8,14 @@ class BlogForm(ModelForm):
         model = BlogPost
         fields = ['title', 'content', 'categories', 'public',]
         widgets = {
-            'title' : forms.TextInput(attrs={'class':'form-imput', 'placeholder':'Post title'}),
-            'content' : forms.Textarea(attrs={'class':'form-imput', 'placeholder':'Post content'}),
+            'title' : forms.TextInput(attrs={'class':'form-input', 'placeholder':'Post title'}),
+            'content' : forms.Textarea(attrs={'class':'form-input', 'placeholder':'Post content', 'resize':'none'}),
         }
         labels = {
             'title':False,
             'content':False
         }
+
 
 
 # Category
@@ -23,9 +24,10 @@ class CategoryForm(ModelForm):
         model = Category
         fields = ['name']
         widgets = {
-            'name' : forms.TextInput(attrs={'class':'form-imput', 'placeholder':'Category name'})
+            'name' : forms.TextInput(attrs={'class':'form-input', 'placeholder':'Category name'})
         }
         labels = {
             'name':False,
         }
+
 
