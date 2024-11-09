@@ -11,6 +11,8 @@ portfolio/.env
 portfolio/__pycache__
 portfolio/migrations
 portfolio/static/img
+portfolio/static/docs
+portfolio/static/fonts
 #shitblogger
 shitblogger/__pycache__
 shitblogger/migrations

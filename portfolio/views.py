@@ -59,6 +59,20 @@ class index(TemplateView):
 
 
 
+# Render virtual CV
+class virtual_cv(TemplateView):
+    
+    template_name = "portfolio/virtual-cv.html"
+
+    def get(self, request):
+        print("hola")
+        return render(request, self.template_name)
+
+    def post(self, request):
+        pass
+
+
+
 # Get my last commits
 def get_last_commits(request):
     last_commits = GitHubApi(GITHUB_TOKEN).getLastCommits('zebalday', 3)

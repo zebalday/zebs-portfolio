@@ -5,7 +5,7 @@
 <html lang="en">
     <head>
         <!-- TITTLE -->
-        <title>Zeb's blog | {% block page_title %}{% comment %} CHILD TEMPLATE TITTLE {% endcomment %}{% endblock page_title %}</title>
+        <title>Zeb's blog | Shitblogger</title>
 
         <!-- META -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,8 +70,15 @@
             {% block page_content %}
             
             {% endblock page_content %}
-        </div>
+       </div>
 
+        <!-- PAGE SCRIPTS -->
+        {% comment %} <script type="text/javascript" src={% static "js/layout-functions.js" %}></script> {% endcomment %}
+        {% block page_scripts %}
+            {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
+        {% endblock page_scripts %}
+
+        
         <!-- PAGE FOOTER -->
         <footer>
             {% if not user.is_authenticated %}
@@ -84,11 +91,7 @@
             <p>Site by <a href="https://github.com/zebalday">@zebalday</a></p>
         </footer>
         
-        <!-- PAGE SCRIPTS -->
-        {% comment %} <script type="text/javascript" src={% static "js/layout-functions.js" %}></script> {% endcomment %}
-        {% block page_scripts %}
-            {% comment %} CHILD TEMPLATE SCRIPTS {% endcomment %}
-        {% endblock page_scripts %}
     </body>
+    
     
 </html>

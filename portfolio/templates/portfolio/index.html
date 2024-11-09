@@ -30,7 +30,11 @@
         <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
         <p><b>Checkout some of my projects!</b></p>
 
-        <button class="section-button" onclick="location.href={% url 'shitblogger:index' %}">BLOG</button>
+        
+        <div class="navigation-buttons">
+            <button class="section-button" onclick = location.href="{% url 'shitblogger:index' %}">BLOG</button>
+            <button class="section-button" onclick = location.href="{% url 'portfolio:virtual-cv' %}">VIRTUAL CV</button>
+        </div>
     </div>
 
     
@@ -63,6 +67,7 @@
         <div id="commits-loader" class="loader">Loading</div>
         {% comment %} COMMITS {% endcomment %}
     </div>
+
 
 
     <!-- SOCIAL MEDIA -->

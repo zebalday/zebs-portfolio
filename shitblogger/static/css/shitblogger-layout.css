@@ -76,8 +76,8 @@ footer{
     color: var(--blog-base-1);
     background-color: var(--blog-base-4);
     width: 100%;
-    position: absolute;
     bottom: 0;
+    
 
     a{
         text-decoration: none;

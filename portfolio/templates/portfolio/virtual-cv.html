@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- TITTLE -->
+        <title>Zeb's portfolio | Virtual CV</title>
+
+        <!-- META -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="copyright" content="&copy; ">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="geo.region" content="CL" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="googlebot-news" content="noindex">
+        <meta name="distribution" content="global" />
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- FACEBOOK OG -->
+        <meta property="og:type" content="Website" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="{% static '' %}" />
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:locale" content="es">
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href={% static "css/virtual-cv.css" %}>
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+        <!-- FAVICON -->
+        <link rel="icon" type="img/ico" sizes="48x48" href={% static "img/favicon/favicon.ico" %}>
+        <link rel="icon" type="img/png" sizes="32x32" href={% static "img/favicon/favicon-32x32.png" %}>
+        <link rel="icon" type="img/png" sizes="16x16" href={% static "img/favicon/favicon-16x16.png" %}>
+        <link rel="apple-touch-icon" sizes="180x180" href={% static "img/favicon/apple-touch-icon.png" %}>
+        <link rel="shortcut icon" type="img/png" sizes="32x32" href={% static "img/favicon/favicon-32x32.png" %}>
+        <link rel="manifest" href={% static "img/favicon/site.webmanifest" %}>
+        <link rel="mask-icon" href={% static "img/favicon/safari-pinned-tab.svg" %} color="#ffffff">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <!-- PAGE BODY -->
+    <body>
+
+        <!-- CV -->
+         <div class="virtual-cv-content">
+
+            <!-- HEADER -->
+            <div id="header" class="header">
+                <h1>Sebastian Alday</h1>
+                <h3>Computer Scientist</h3>
+                <div class="social">
+                    <a href="mailto:sebaalday28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/sebasti%C3%A1n-alday-n%C3%BA%C3%B1ez-9a669a229/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- DOWNLOAD BUTTON -->
+            <a href = {% static "docs/CV_SebastianAlday_English.pdf" %} download>
+                <button id="download-button" class="download-button">Download CV <i class="fa-solid fa-file-arrow-down"></i></button>
+            </a>
+
+            <!-- WORKING EXPERIENCE -->
+            <div class="section">
+                <h4 class="section-title">WORKING EXPERIENCE</h4>
+                <div class="section-content">
+                    <h4>Internship – ENTIX Enterprise TI Experts [2024]</h4>
+                    <p>During the final phase of my studies, I had the great opportunity to join the development team at ENTIX, a Chilean company dedicated to consulting and management of ETL IT projects. During my time there I was able to:</p>
+                    <ul>
+                        <li>Manage the software tools used in the industry, such as Talend or Informatica PowerCenter.</li>
+                        <li>Learn good practices of the ETL process.</li>
+                        <li>Develop ETL processes for report generation.</li>
+                        <li>Develop scripts for the automation of data extraction using APIs.</li>
+                        <li>Create dashboards for company management using Microsoft Power Bi.</li>
+                        <li>Manage a research project on Machine Learning applied to ETL processes.</li>
+                    </ul>
+
+                    <h4>Call Center Operator – Holdtech S.A [202-2021]</h4>
+                    <p>Before studying Computer Engineering, I had the opportunity to work remotely as a call centre executive for Holdtech S.A., where I oversaw:</p>
+                    <ul>
+                        <li>Providing telephone solutions (billing, portability, management of pre- and post-paid plans, connectivity, among others) to clients of large telecommunications companies.</li>
+                        <li>Tracking problem-solving tickets.</li>
+                        <li>Meeting sales goals and relevant KPIs.</li>
+                        <li>Using business software to record procedures and manage services.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACADEMIC BACKGROUND -->
+            <div class="section">
+                <h4 class="section-title">ACADEMIC BACKGROUND</h4>
+                <div class="section-content">
+                    <h4>Computer Science – Saint Thomas Professional Institute, Chile [2021 - 2024]</h4>
+                    <p>Throughout my studies at Saint Thomas PI, I have acquired several academic certifications and developed various IT projects such as server building and developing software solutions for third parties, using technologies such as Linux, Python, Java, .NET framework, Django, GitHub, among others.</p>
+                    <p>I worked in the admissions and outreach area of the university, where I gave talks to high school students. This strengthened my communication and leadership skills.</p>
+                    <p>Additionally, I have conducted workshops on programming fundamentals for first and second-year computer engineering students in order to reinforce their knowledge and develop their programming logic in Python and Java languages.</p>
+
+                    <h4>Graduate Diploma in Applied Information Technology – WINTEC [2023]</h4>
+                    <p>I had the opportunity to participate in a student exchange in New Zealand, for a 6-month period, in the second semester of 2023. There I studied subjects related to my field of study and professional profile, all taught in English, which I passed with outstanding grades. Among these subjects I had to take Big Data & Analytics and Routing & Switching Essentials.</p>
+                    <p>This was a period of great personal and academic growth, as I was able to meet people from different parts of the world, their cultures and thoughts, while at the same time having to adapt to an innovative and challenging educational environment.</p>
+                </div>
+            </div>
+
+            <!-- CERTIFICATIONS -->
+            <div class="section">
+                <h4 class="section-title">CERTIFICATIONS</h4>
+                <div class="section-content">
+                    <h4>English Certificate - IELTS [2023]</h4>
+                    <p>Score 7.5 / 9.0 (C1)</p>
+                    
+                    <h4>Basic and Advance Programming [2023]</h4>
+                    <ul>
+                        <li>Data Structure and Algorithms - Python </li>
+                        <li>OOP foundations - Java </li>
+                        <li>.NET - C# Programming</li>
+                        <li>Web Programming - HTML, CSS, Php, JavaScript, Python, Django </li>
+                        <li>Android Programming - Java, XML</li>
+                    </ul>
+
+                    <h4>Software and Database Design [2023]</h4>
+                    <ul>
+                        <li>Requirements Specification </li>
+                        <li>Software Design </li>
+                        <li>Databases Design and Programming - SQL</li>
+                    </ul>
+
+                    <h4>Software Architecture [2023]</h4>
+                    <ul>
+                        <li>Design Patterns</li>
+                        <li>Systems Architecture</li>
+                    </ul>
+
+                    <h4>Systems Administration [2023]</h4>
+                    <ul>
+                        <li>Hardware and Personal Equipment Connectivity</li>
+                        <li>Operative Systems – Windows (Home & Server) and Linux (Debian, Ubuntu)</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- SOFTWARE HANDLING -->
+            <div class="section">
+                <h4 class="section-title">SOFTWARE HANDLING</h4>
+                <div class="section-content">
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>Jupyter Notebook</li>
+                        <li>MySQL WorkBench</li>
+                        <li>Microsoft SQL Server</li>
+                        <li>Oracle SQL Developer</li>
+                        <li>Microsoft Excel</li>
+                        <li>Microsoft PowerBI</li>
+                        <li>Informatica PowerCenter</li>
+                        <li>Talend Open Studio</li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+    
+        
+        <!-- FLOATING BUTTONS -->
+        <div id="floating-buttons" class="floating-buttons">
+            <button id="floating-button" class="download-button float-button" onclick = location.href="{% url "portfolio:index" %}"><i class="fa-solid fa-rotate-left"></i></button>
+            <a href = {% static "docs/CV_SebastianAlday_English.pdf" %} download>
+                <button id="floating-button" class="download-button float-button"><i class="fa-solid fa-file-arrow-down"></i></button>
+            </a>
+        </div>
+
+        <!-- PAGE SCRIPTS -->
+        <script type="text/javascript" src={% static "js/virtual-cv-functions.js" %}></script>
+            
+    </body>
+
+
+</html>
