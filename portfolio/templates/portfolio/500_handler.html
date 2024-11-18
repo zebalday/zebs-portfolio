@@ -1,0 +1,21 @@
+{% extends "portfolio/layout.html" %}
+
+{% load static %}
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href={% static "css/handlers.css" %}>
+{% endblock page_styles %}
+
+{% block page_content %}
+
+<div class="info">
+    <h1><b>500</b> - <em>Internal Server Error</em></h1>
+    <p><b>Error type:</b> {{type}}</p>
+    <p><b>Error description:</b> {{value}}</p>
+
+    <p>Please contact the administrator.</p>
+</div>
+
+{% endblock page_content %}
+
+

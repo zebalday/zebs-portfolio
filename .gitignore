@@ -2,6 +2,7 @@
 media
 venv
 pyhub
+staticfiles
 #website
 website/.env
 website/__pycache__

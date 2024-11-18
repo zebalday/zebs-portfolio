@@ -24,7 +24,7 @@
     <span class="form-close-button" onclick="hideCustomAlert()">&times;</span>
     <div class="form-container" id="form-container">
         <h3 class="section-title">Login</h3>
-        <form action="{% url 'shitblogger:index' %}" method="POST">
+        <form action="{% url 'shitblogger:login' %}" method="POST">
             {% csrf_token %}
             <input type="text" id="username" name="username">
             <input type="password" id="password" name="password">

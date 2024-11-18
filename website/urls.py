@@ -19,12 +19,14 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from portfolio.views import index
+from django.conf.urls import handler404, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index.as_view(), name='index'),
     path('portfolio/', include('portfolio.urls')),
     path('shitblogger/', include('shitblogger.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = 'portfolio.views.handler404'
+handler500 = 'portfolio.views.handler500'

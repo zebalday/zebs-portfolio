@@ -35,31 +35,13 @@ class BlogIndex(TemplateView):
 
         # Return
         return render(request, self.template_name, self.context)
-    
-    
-    def post(self, request):
 
-        print(request.POST)
 
-        # POST - LOGIN
-        if 'username' and 'password' in request.POST:
-            # Authenticate user success
-            if blog_login(request):
-                messages.success(request, 'Login sucessful.')
-                return render(request, self.template_name, self.context)
-
-            # Authenticate user error
-            messages.error(request, 'Invalid credentials.')
-            return render(request, self.template_name, self.context)
-        
-
-        messages.error(request, 'No post data.')
-        return render(request, self.template_name, self.context)
 
         
 
 # Login function
-def blog_login(request) -> bool:
+def blog_login(request):
 
     # Get user data
     username = request.POST['username']
@@ -71,15 +53,21 @@ def blog_login(request) -> bool:
     # Return result
     if user is not None:
         login(request, user)
-        return True
+        messages.success(request, 'Login sucessful.')
+    else:
+        messages.error(request, 'Invalid credentials.')
     
-    return False
+    return redirect("shitblogger:index")
+    
+
+
 
 
 # Logout function
 def blog_logout(request):
     logout(request)
     return redirect('shitblogger:index')
+
 
 
 # Add category
@@ -96,6 +84,7 @@ def add_category(request):
         
         messages.error(request, 'Error during the execution.')
         return redirect('shitblogger:index')
+
 
 
 # Add blog post

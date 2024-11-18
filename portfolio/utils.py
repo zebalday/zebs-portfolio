@@ -149,7 +149,7 @@ def get_current_song(access_token):
         }
     )
 
-    #print(response.status_code)
+    print(response.status_code)
     #print(response.content)
 
     if response.status_code == 200:
@@ -181,7 +181,7 @@ def get_recently_played(access_token):
         }
     )
 
-    #print(response.status_code)
+    print(response.status_code)
 
     if response.status_code == 200:
         response = response.json()
@@ -190,6 +190,3 @@ def get_recently_played(access_token):
         return {'recently_exists' : True, 'tracks' : response['items']}
     
     return {'recently_exists' : False, 'tracks' : None}
-
-
-    

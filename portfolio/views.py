@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.generic import TemplateView
 from .models import Project, SpotifyToken
 from .serializers import SpotifyTokensSerializer
@@ -8,6 +8,7 @@ from requests import get, post, Request
 import dotenv
 import os
 import base64
+import sys
 from .utils import (
     save_tokens, 
     refresh_token, 
@@ -173,3 +174,36 @@ def is_auth(request):
 
     is_valid = check_valid_token(access_token)
     return JsonResponse(is_valid)
+
+
+
+# 404: Page not found - Error
+def handler404(request, exception):
+    template_name = "portfolio/404_handler.html"
+    return render(request, template_name=template_name)
+
+
+
+# 500: Server side - Error
+def handler500(request, *args, **argv):
+    template_name = "portfolio/500_handler.html"
+
+    ex_type, ex_value, exc_traceback = sys.exc_info()
+    
+    ex_type = str(ex_type.__name__)
+    ex_value = str(ex_value).replace("<","").replace(">", ".")    
+    
+    context = {
+        'type' : ex_type,
+        'value' : ex_value
+    }
+    
+    # print(type(ex_value))
+    # print(ex_value)
+
+    return render(
+        request,
+        template_name,
+        context
+    )
+    

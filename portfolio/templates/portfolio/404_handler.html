@@ -1,0 +1,22 @@
+{% extends "portfolio/layout.html" %}
+{% load static %}
+
+{% block page_styles %}
+    <link rel="stylesheet" type="text/css" href={% static "css/handlers.css" %}>
+{% endblock page_styles %}
+
+{% block page_content %}
+
+<div class="info">
+    <h1><b>404</b> - <em>Page Not Found</em></h1>
+    <h3>The page that you're trying to reach does not exists.</h3>
+    
+    <h3>Try these!</h3>
+    <ul>
+        <li onclick=location.href="{% url 'portfolio:index' %}">Portfolio index</li>
+        <li onclick=location.href="{% url 'shitblogger:index' %}">Shitblogger</li>
+        <li onclick=location.href="{% url 'portfolio:virtual-cv' %}">Digital CV</li>
+    </ul>
+</div>
+
+{% endblock page_content %}
