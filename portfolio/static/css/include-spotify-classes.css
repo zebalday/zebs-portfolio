@@ -138,6 +138,80 @@
     }
 }
 
+/* EFFECTS */
+
+.current-song-loader,
+.recently-played-loader {
+    width: 150px;
+    height: 150px;
+    /* line-height: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 0;
+    text-transform: uppercase;
+}
+
+.current-song-loader:before,
+.recently-played-loader:before,
+.current-song-loader:after,
+.recently-played-loader:after{
+    opacity: 0;
+    box-sizing: border-box;
+    content: "\0020";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    border: 5px solid var(--commit-dark-yellow);
+    box-shadow: 0 0 50px var(--commit-dark-yellow), inset 0 0 50px var(--commit-dark-yellow);
+}
+
+.current-song-loader::before,
+.current-song-loader::after{
+    border: 5px solid var(--spotify-dark-green);
+    box-shadow: 0 0 50px var(--spotify-dark-green), inset 0 0 50px var(--spotify-dark-green);
+}
+
+.recently-played-loader::before,
+.recently-played-loader::after{
+    border: 5px solid var(--spotify-light-grey);
+    box-shadow: 0 0 50px var(--spotify-light-grey), inset 0 0 50px var(--spotify-light-grey);
+}
+
+.current-song-loader:after,
+.recently-played-loader:after {
+    z-index: 1;
+    animation: gogoloader 2s infinite 1s;
+}
+
+.current-song-loader:before,
+.recently-played-loader:before {
+    z-index: 2;
+    animation: gogoloader 2s infinite;
+}
+
+  
+@keyframes gogoloader {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0;
+    }
+}
+  
 
 
 

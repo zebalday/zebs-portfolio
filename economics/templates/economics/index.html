@@ -1,0 +1,70 @@
+{% extends "economics/layout.html" %}
+{% load static %}
+
+{% block page_title %}Home{% endblock page_title %}
+
+{% block page_styles %}
+<link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/economics-index.css' %}" rel="stylesheet" type="text/css">
+{% endblock page_styles %}
+
+
+{% block page_content %}
+
+<div class="content-container" id="content-container">
+
+    <!-- ECONOMICS BANNER -->
+    <div class="banner-container">
+        
+        <div class="currency-slider">
+            <div>
+                <div class="currency-item"><p id="currency-type">UF</p><p class="currency-value-UF"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">UTM</p><p class="currency-value-UTM"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IMC</p><p class="currency-value-IMC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IPC</p><p class="currency-value-IPC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">BTC</p><p class="currency-value-BTC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">USD</p><p class="currency-value-USD"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">USDI</p><p class="currency-value-USDI"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">EU</p><p class="currency-value-EU"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">TPM</p><p class="currency-value-TPM"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">TD</p><p class="currency-value-TD"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IVP</p><p class="currency-value-IVP"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">LC</p><p class="currency-value-LC"><span class="loader"></span></p></div>
+            </div>
+            <div>
+                <div class="currency-item"><p id="currency-type">UF</p><p class="currency-value-UF"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">UTM</p><p class="currency-value-UTM"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IMC</p><p class="currency-value-IMC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IPC</p><p class="currency-value-IPC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">BTC</p><p class="currency-value-BTC"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">USD</p><p class="currency-value-USD"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">USDI</p><p class="currency-value-USDI"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">EU</p><p class="currency-value-EU"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">TPM</p><p class="currency-value-TPM"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">TD</p><p class="currency-value-TD"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">IVP</p><p class="currency-value-IVP"><span class="loader"></span></p></div>
+                <div class="currency-item"><p id="currency-type">LC</p><p class="currency-value-LC"><span class="loader"></span></p></div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <!-- MORE CONTENT -->
+    <div class="economics-content">
+        <!-- bla bla -->
+    </div>
+
+</div>
+
+{% endblock page_content %}
+
+
+{% block page_scripts %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src={% static "js/fetch-indicators.js" %}></script>
+  
+{% endblock page_scripts %}

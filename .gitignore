@@ -22,5 +22,9 @@ shitblogger/static/img
 pytify/__pycache__
 pytify/migrations
 pytify/.env
+#economics
+economics/__pycache__
+economics/migrations
 #db
 db.sqlite3
+

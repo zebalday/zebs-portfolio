@@ -7,7 +7,7 @@ const loader = document.getElementById('commits-loader');
 function fetchCommits() {
 
   // Show loader
-  loader.style.display = 'block';
+  /* loader.style.display = 'block'; */
 
   // Petition
   $.ajax({

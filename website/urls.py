@@ -26,6 +26,7 @@ urlpatterns = [
     path('', index.as_view(), name='index'),
     path('portfolio/', include('portfolio.urls')),
     path('shitblogger/', include('shitblogger.urls')),
+    path('economics/', include('economics.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'portfolio.views.handler404'

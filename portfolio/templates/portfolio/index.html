@@ -25,14 +25,14 @@
         <img src="{% static 'img/pp-ia.jpg' %}" alt="Profile picture">
     </div>
     <div id="profile-description">
-        <h2>Sofware Engineer</h2>
-        <p>I'm a 25 Y.O Computer Engineer from L.S, Chile with strong programming skills in Python & Java who's passionate for data management.</p>
+        <h2>Sebastian Alday</h2>
+        <p>I'm a 25 Y.O <b>Computer Engineer</b> from L.S, Chile with strong programming skills in Python & Java who's passionate for data management.</p>
         <p>My hands-on experience includes developing web applications using Python and Django, creating and consuming APIs for efficient data transmission.</p>
         <p><b>Checkout some of my projects!</b></p>
 
         
         <div class="navigation-buttons">
-            <button class="section-button" onclick = location.href="{% url 'portfolio:virtual-cv' %}">PROYECTS</button>
+            <button class="section-button" onclick = location.href="{% url 'economics:home' %}">PROYECTS</button>
             <button class="section-button" onclick = location.href="{% url 'shitblogger:index' %}">BLOG</button>
             <button class="section-button" onclick = location.href="{% url 'portfolio:virtual-cv' %}">VIRTUAL CV</button>
         </div>
@@ -44,28 +44,30 @@
 
         <!-- CURRENTLY PLAYING SONG -->
         <div id="current-playing-container">
-            {% if current_song.currently_playing == True %}
-                <h3>Currently playing</h3>
-                {% include "includes/current-song.html" with track=current_song.track.item track_card_class="current-playing" %}
-            {% endif %}
+            <div id="current-song-loader" class="current-song-loader">Current song</div>
+            {% comment %} {% if current_song.currently_playing == True %}
+            <h3>Currently playing</h3>
+            {% include "includes/current-song.html" with track=current_song.track.item track_card_class="current-playing" %}
+            {% endif %} {% endcomment %}
             {% comment %} <button onclick="location.href='{{login_url}}'">LOGIN</button> {% endcomment %}
         </div>
         
         <!-- RECENTLY PLAYED TRACKS -->
         <div id="recently-played-container">
-            {% if recently_played.recently_exists == True %}
+            <div id="recently-played-loader" class="recently-played-loader">Recently played</div>
+            {% comment %} {% if recently_played.recently_exists == True %}
             <h3>Recently played...</h3>
                 {% for track in recently_played.tracks %}
                     {% include "includes/current-song.html" with track=track.track track_card_class="recently-played" %}                
                 {% endfor %}
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
     </div>
     
     
     <!-- GITHUB ACTIVITY -->
     <div id="commits-container">
-        <div id="commits-loader" class="loader">Loading</div>
+        <div id="commits-loader" class="commits-loader">Last commits</div>
         {% comment %} COMMITS {% endcomment %}
     </div>
 

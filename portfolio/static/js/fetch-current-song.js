@@ -1,15 +1,22 @@
 // Commits container
 const currentlyPlayingContainer = document.getElementById('current-playing-container');
+const currentSongLoader = document.getElementById('current-song-loader');
 
 // Fetch Commits from GitHubAPi endpoint
 function fetchCurrentTrack() {
+
+    // Show loader
+    /* currentSongLoader.style.display = 'block'; */
 
     $.ajax({
         url: '/portfolio/get-current-song',
         dataType: 'json',
         success: function(data) {
-          //console.log('Current playing track ' + JSON.stringify(data));
+          /* console.log('Current playing track ' + JSON.stringify(data)); */
           displayCurrentSong(data);
+        },
+        complete: function(){
+            currentSongLoader.style.display = 'none';
         }
     });
 }

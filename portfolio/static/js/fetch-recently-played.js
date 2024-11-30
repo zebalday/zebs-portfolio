@@ -1,9 +1,12 @@
 // Commits container
 const recentlyPlayedContainer = document.getElementById('recently-played-container');
+const recentlyPlayedLoader = document.getElementById('recently-played-loader');
 
 
 // Fetch Commits from GitHubAPi endpoint
 function fetchRecentlyTracks() {
+
+    /* recentlyPlayedLoader.style.display = 'block'; */
 
     $.ajax({
         url: '/portfolio/get-recently-played',
@@ -11,6 +14,9 @@ function fetchRecentlyTracks() {
         success: function(data) {
           /* console.log('Recently played tracks ' + JSON.stringify(data)); */
           displayRecentlyPlayed(data.tracks);
+        },
+        complete: function(){
+            recentlyPlayedLoader.style.display = 'none';
         }
     });
 }
@@ -75,4 +81,4 @@ function displayRecentlyPlayed(tracks) {
 }
 
 
-setInterval(fetchRecentlyTracks, 60000);
+setInterval(fetchRecentlyTracks, 10000);

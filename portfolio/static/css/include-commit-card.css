@@ -69,10 +69,13 @@
 
 /* EFFECTS */
 
-.loader {
+.commits-loader {
     width: 150px;
     height: 150px;
-    line-height: 150px;
+    /* line-height: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 100px auto;
     position: relative;
     box-sizing: border-box;
@@ -81,8 +84,8 @@
     text-transform: uppercase;
 }
 
-.loader:before,
-.loader:after {
+.commits-loader:before,
+.commits-loader:after {
     opacity: 0;
     box-sizing: border-box;
     content: "\0020";
@@ -96,12 +99,12 @@
     box-shadow: 0 0 50px var(--commit-dark-yellow), inset 0 0 50px var(--commit-dark-yellow);
 }
 
-.loader:after {
+.commits-loader:after {
     z-index: 1;
     animation: gogoloader 2s infinite 1s;
 }
 
-.loader:before {
+.commits-loader:before {
     z-index: 2;
     animation: gogoloader 2s infinite;
 }

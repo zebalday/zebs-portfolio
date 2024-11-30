@@ -51,10 +51,10 @@ class index(TemplateView):
         access_token = request.session['access_token']
         
         # Context
-        self.context['projects'] = Project.objects.filter(public = True)
-        self.context['login_url'] = request_auth()
-        self.context['current_song'] = get_current_song(access_token)
-        self.context['recently_played'] = get_recently_played(access_token)
+        #self.context['login_url'] = request_auth()
+        #self.context['projects'] = Project.objects.filter(public = True)
+        #self.context['current_song'] = get_current_song(access_token)
+        #self.context['recently_played'] = get_recently_played(access_token)
 
         return render(request, self.template_name, self.context)
 

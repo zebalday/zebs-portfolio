@@ -1,0 +1,126 @@
+.content-container{
+    display: flex;
+    flex-direction: column;
+
+    /* BANNER SECTION --> ABSOLUTE */
+    .banner-container{
+        position: absolute;
+        width: 93%;
+        left: 0;
+        right: 0;
+
+        .currency-slider {
+            --image-size: 100px;
+            padding: 20px;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            column-gap: 1rem;
+            
+            div {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                animation: marquee 40s linear infinite;
+                column-gap: 0.5rem;
+
+                .currency-item {
+                    padding: 0.2rem 2.0rem;
+                    border-radius: 30px;
+                    border: 1px solid #cecece;
+                    background-color: rgb(224 224 224 / 20%);
+                    box-shadow: 0px 0px 15px -2px #c0b9b9;
+                    width: 5rem;
+                    display: flex;
+                    column-gap: 0.2rem;
+                    justify-content: center;
+                    align-items: center;
+                    color: gold;;
+                    
+                    p{
+                        margin: 0 auto;
+                        font-family: "Nexa-EL";
+                    }
+                }
+            }
+        }
+    }
+
+    /* ECONOMIXS HOME INFO --> FLEX */
+    .economics-content{
+
+    }
+}
+
+
+.loader{
+    height:0.5rem;
+    width: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor:progress;
+
+    border-radius: 50%;
+    border-top: 2px solid gold;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid gold;
+    border-right: 2px solid transparent;
+
+    animation: loading 1s linear infinite;
+}
+  
+  
+
+/* ANIMATIONS */
+@keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
+@keyframes loading {
+    0% {
+     transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+
+/* RESPONSIVENESS */
+@media (min-width:350px) {
+   .banner-container{
+        width: 91% !important;
+   }
+}
+
+
+@media (min-width:540px) {
+    .banner-container{
+         width: 95% !important;
+    }
+   
+}
+
+@media (min-width:768px) {
+    .banner-container{
+         width: 97% !important;
+    }
+    
+}
+
+@media (min-width:1080px) {
+    .banner-container{
+         width: 99% !important;
+    }
+    
+}
